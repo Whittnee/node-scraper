@@ -29,7 +29,10 @@ const argv = yargs(hideBin(process.argv))
 const NGINX_PORT = 8088;
 const NGINX_ROOT = "/var/www/site";
 
-const TMP_BASE = path.join("/tmp", `scrape-${crypto.randomBytes(4).toString("hex")}`);
+const TMP_BASE = path.join(
+  "/tmp",
+  `scrape-${crypto.randomBytes(4).toString("hex")}`
+);
 const WORK = path.join(TMP_BASE, "site");
 
 async function ensureNginxConf(rootDir) {
@@ -100,12 +103,12 @@ async function modifyHTMLFiles(dir, keyword) {
 }
 
 async function main() {
-  await fs.ensureDir(TMP_BASE); 
+  await fs.ensureDir(TMP_BASE);
 
   console.log("Downloading site to", WORK);
   await scrape({
     urls: [argv.url],
-    directory: WORK, 
+    directory: WORK,
     recursive: true,
     maxDepth: argv.maxDepth,
     request: { headers: { "user-agent": "Mozilla/5.0 (ScraperBot)" } },
