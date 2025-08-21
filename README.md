@@ -1,4 +1,4 @@
-# node-scraper
+# Node-Scraper
 
 Node.js-утилита для скачивания статических сайтов, автоматической вставки ключевых слов в HTML и последующей публикации через Nginx внутри Docker-контейнера.  
 
@@ -35,8 +35,8 @@ Node.js-утилита для скачивания статических сай
 ```git clone https://github.com/Whittnee/node-scraper.git```
 3. Собрать Docker-образ:  
 ```docker build -t node-scraper .```
-4. Запустить контейнер:
+4. Запустить контейнер:  
 ```docker run -d --name node-scraper -p 8088:8088 node-scraper```
-5. Выполнить скрипт внутри контейнера (пример с сайтом example.com и ключевым словом PinUp): 
-```docker exec -it node-scraper scraper --url https://example.com --keyword PinUp ```
+5. Выполнить скрипт внутри контейнера (пример с сайтом example.com и ключевым словом PinUp):   
+```docker exec -it node-scraper scraper --url https://example.com --keyword PinUp```
 6. Теперь можно открыть результат по ссылке: http://localhost:8088 
